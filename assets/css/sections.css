@@ -561,3 +561,4 @@
   position:absolute; bottom:0; left:0; height:2px;
   background:var(--amber); width:0%; z-index:3; box-shadow:0 0 12px rgba(102,22,16,.9);
 }
+@media (max-width: 768px) { .rail-item__media { width: clamp(240px, 70vw, 300px) !important; height: clamp(340px, 60vh, 450px) !important; } }
