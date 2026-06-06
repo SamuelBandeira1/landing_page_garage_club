@@ -5,7 +5,7 @@ window.GC = window.GC || {};
 
 GC.cuts = [
   { img:"assets/img/new-01.webp", no:"01", name:"Pompadour & Barba Full",  tag:"DESTAQUE", featured:true },
-  { img:"assets/img/new-03.webp", no:"02", name:"Side Part Texturizado",   tag:"CLASSIC" },
+  { img:"assets/img/new-03.jpg", no:"02", name:"Side Part Texturizado",   tag:"CLASSIC" },
   { img:"assets/img/cut-03.jpg", no:"03", name:"Pompadour Slick",         tag:"SIGNATURE" },
   { img:"assets/img/cut-02.jpg", no:"04", name:"Mid Fade Natural",        tag:"FADE" },
   { img:"assets/img/new-04.webp", no:"05", name:"Cacheado Definido",       tag:"NATURAL" },
