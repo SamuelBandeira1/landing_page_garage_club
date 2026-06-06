@@ -455,32 +455,37 @@ GC.sceneBrandIntro = function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return;
 
-  gsap.fromTo('.brand-intro__title', { opacity:0, y:60 }, {
-    opacity:1, y:0, duration:1.1, ease:'expo.out',
-    scrollTrigger:{ trigger:'.brand-intro__title', start:'top 85%',
-      onUpdate:s=>track(s.scrollTrigger) }
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#brand-intro',
+      start: 'top 75%',
+      onUpdate: s => track(s.scrollTrigger)
+    }
   });
-  gsap.fromTo('.brand-intro__body', { opacity:0, y:30 }, {
-    opacity:1, y:0, duration:.9, ease:'power3.out', delay:.12,
-    scrollTrigger:{ trigger:'.brand-intro__body', start:'top 88%',
-      onUpdate:s=>track(s.scrollTrigger) }
-  });
-  gsap.fromTo('.brand-intro__stat', { opacity:0, y:24 }, {
-    opacity:1, y:0, duration:.7, ease:'power3.out', stagger:.1,
-    scrollTrigger:{ trigger:'.brand-intro__stats', start:'top 88%',
-      onUpdate:s=>track(s.scrollTrigger) }
-  });
-  gsap.fromTo('.brand-intro__img', { opacity:0, scale:.96, x:40 }, {
-    opacity:1, scale:1, x:0, duration:1.2, ease:'expo.out',
-    scrollTrigger:{ trigger:'.brand-intro__img', start:'top 85%',
-      onUpdate:s=>track(s.scrollTrigger) }
-  });
-  gsap.fromTo('.brand-intro__quote', { opacity:0, y:30 }, {
-    opacity:1, y:0, duration:.8, ease:'power3.out', delay:.3,
-    scrollTrigger:{ trigger:'.brand-intro__quote', start:'top 92%',
-      onUpdate:s=>track(s.scrollTrigger) }
-  });
+
+  tl.fromTo('.brand-intro__kicker', { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.8, ease:'power3.out' })
+    .fromTo('.brand-intro__title', { opacity:0, y:50 }, { opacity:1, y:0, duration:1.2, ease:'expo.out' }, "-=0.6")
+    .fromTo('.brand-intro__body', { opacity:0, y:30 }, { opacity:1, y:0, duration:1, ease:'power3.out' }, "-=0.9")
+    .fromTo('.brand-intro__stat', { opacity:0, y:20 }, { opacity:1, y:0, duration:0.8, ease:'power3.out', stagger:0.15 }, "-=0.7")
+    .fromTo('.brand-intro__img', { opacity:0, x:40, scale:0.95 }, { opacity:1, x:0, scale:1, duration:1.2, ease:'expo.out' }, "-=1.2")
+    .fromTo('.brand-intro__quote', { opacity:0, x:40 }, { opacity:1, x:0, duration:1, ease:'expo.out' }, "-=0.8");
+
+  // Continuous Parallax Scrub for the Image inside
+  gsap.fromTo('.brand-intro__img img', 
+    { scale: 1.3, transformOrigin: 'center center' }, 
+    { 
+      scale: 1, 
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#brand-intro',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    }
+  );
 };
+
 
 
 /* ── GC.initFrameScrub (legado) removido ──────────────────────
