@@ -346,6 +346,54 @@ Inserimos uma transição visceral no final da página (logo antes do rodapé) p
 
 
 
+### ⚖️ MISSÃO 14 — Protocolo Peso Zero (Auditoria Core Web Vitals)
+**Data:** 2026-06-06 | **Agentes:** O Auditor & O Cirurgião  
+**Fase do projeto:** Sprint 13 — Performance e Vercel Deploy
+
+#### ✅ Missão Concluída
+O site foi submetido à bancada do Auditor de Performance, que bloqueou o deploy inicial devido a um payload obeso de ~65MB, o que massacraria a métrica de LCP em redes móveis. O Cirurgião aplicou a dieta "Peso Zero".
+
+- **Compressão Brutal:** Imagens obsoletas de 7.7MB e 1.4MB foram oblitadas e substituídas por formatos `.webp` nativos, caindo para `201KB` e `150KB`.
+- **Compressão Vetorial de Vídeo:** Rodamos o FFmpeg diretamente na codebase (`-vcodec libx264 -crf 28 -preset veryslow -an`) para esmagar o vídeo `barbers-reel.mp4` de 14MB para inacreditáveis **1.12MB**.
+- **Otimização de 300 Frames:** A sequência de frames extraída da barbearia foi reprocessada com `-q:v 5` pelo FFmpeg, derretendo o payload do canvas de 24MB para enxutos **~7.5MB** sem perda visual para o usuário.
+- **Render-Blocking Secundário:** Injeção do atributo `defer` em todas as tags de scripts do footer, garantindo um parse instantâneo do DOM pelo navegador.
+
+#### ⚡ XP Ganho
+| Habilidade | Aprendizado |
+|---|---|
+| **Engenharia de Performance Web** | Aplicação estrita de regras do Lighthouse LCP. Compressão multi-thread de vídeo (`libx264 veryslow`) sem dependência de SaaS de terceiros, rodando FFmpeg no metal. |
+
+#### 📊 Métricas da Missão
+- **Redução de Peso Geral:** O site caiu de **65MB para ~15MB** (-76% de consumo de banda de rede).
+- **Relatório de Auditoria:** Status alterado para **APROVADO PARA DEPLOY**.
+
+---
+
+### 📱 MISSÃO 15 — Correção Mobile e Cirurgia CSS
+**Data:** 2026-06-06 | **Agentes:** O Inspetor & O Cirurgião  
+**Fase do projeto:** Manutenção Pós-Deploy
+
+#### ✅ Missão Concluída
+O usuário relatou dois bugs no carrossel de fotos durante a homologação via celular:
+1. Uma foto quebrou no carrossel.
+2. As fotos da barbearia sofriam um alongamento bizarro que as transformava em faixas esguias ("espaguetes"). Além disso, o espaçamento entre elas sufocava a legibilidade (o *gap* base de `1.2rem` encolhia).
+
+O Inspetor rastreou a falha visual: as larguras do grid JS eram calculadas em `vw` (viewport width) e as alturas em `vh` (viewport height) dinamicamente. Na tela estreita e alta de um smartphone, a imagem afinava.
+
+A solução do Cirurgião cortou o elo: 
+- A foto quebrada (`new-03.png` órfã) foi forjada via FFmpeg para `new-03.webp`.
+- Aplicamos uma vacina CSS limpa via `@media (max-width: 768px)` travando os limites das fotos do carrossel usando a diretriz funcional `clamp(240px, 70vw, 300px)` e forçando um gap horizontal agressivo de `3rem !important`. 
+- Reposicionamos a página para deploy novamente, restaurando as margens seguras e as proporções harmônicas do grid mobile.
+
+#### ⚡ XP Ganho
+| Habilidade | Aprendizado |
+|---|---|
+| **Responsive CSS Override** | Como injetar *safeguards* (travas de segurança via `clamp`) no CSS para sobrepor lógicas de grids em Javascript (`width/height` injetadas de forma inline) que estouram o viewport móvel. |
+
+#### 📊 Métricas da Missão
+- **Arquivos modificados:** 2 (`sections.css`, terminal ffmpeg)
+- **Artefato gerado:** `RELATORIO_DIAGNOSTICO_INSPETOR.md`
+
 ---
 
 ## 🎯 STATUS FINAL — PRONTO PARA DEPLOY

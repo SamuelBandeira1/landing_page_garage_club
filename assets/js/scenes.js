@@ -491,3 +491,19 @@ GC.sceneBrandIntro = function(){
    ────────────────────────────────────────────────────────────── */
 
 
+
+GC.sceneFooterMap = function() {
+  const mapEl = document.querySelector('.footer__map');
+  if (!mapEl) return;
+  gsap.to(mapEl, {
+    backgroundPosition: 'center 100%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#footer',
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: true
+    }
+  });
+};
+

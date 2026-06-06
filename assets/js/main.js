@@ -22,6 +22,7 @@
     GC.sceneOS();
     GC.sceneClub();
     if(GC.sceneLimiar) GC.sceneLimiar();
+    if(GC.sceneFooterMap) GC.sceneFooterMap();
     ScrollTrigger.refresh();
     // Lenis must re-measure AFTER pin-spacers are injected
     if(GC.lenis) GC.lenis.resize();
