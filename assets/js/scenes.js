@@ -449,40 +449,85 @@ GC.sceneFrameScrub = function(){
 };
 
 /* ============================================================
-   BRAND INTRO — on-scroll reveal
+   BRAND INTRO — SHOCK & AWE (Kinetic Typography + Navalha Reveal)
    ============================================================ */
 GC.sceneBrandIntro = function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return;
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#brand-intro',
-      start: 'top 75%',
-      onUpdate: s => track(s.scrollTrigger)
-    }
+  /* ── 1. KINETIC WORD SPLITTER ──────────────────────────── */
+  const titleEl = document.querySelector('.brand-intro__title');
+  if(titleEl && !titleEl.dataset.split){
+    titleEl.dataset.split = '1';
+    // preserve <em> tags by splitting around them
+    const raw = titleEl.innerHTML;
+    const lines = raw.split(/<br\s*\/?>/i);
+    titleEl.innerHTML = lines.map(line => {
+      // wrap whole line in overflow clip
+      return `<div class="bi-line" style="overflow:hidden;display:block;line-height:.92">` +
+             `<div class="bi-word" style="display:inline-block;will-change:transform">${line}</div>` +
+             `</div>`;
+    }).join('');
+  }
+
+  /* ── 2. FLASH DE FUNDO ─────────────────────────────────── */
+  const section = document.querySelector('#brand-intro');
+  const flashTl = gsap.timeline({
+    scrollTrigger:{ trigger:'#brand-intro', start:'top 70%', once:true }
   });
 
-  tl.fromTo('.brand-intro__kicker', { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.8, ease:'power3.out' })
-    .fromTo('.brand-intro__title', { opacity:0, y:50 }, { opacity:1, y:0, duration:1.2, ease:'expo.out' }, "-=0.6")
-    .fromTo('.brand-intro__body', { opacity:0, y:30 }, { opacity:1, y:0, duration:1, ease:'power3.out' }, "-=0.9")
-    .fromTo('.brand-intro__stat', { opacity:0, y:20 }, { opacity:1, y:0, duration:0.8, ease:'power3.out', stagger:0.15 }, "-=0.7")
-    .fromTo('.brand-intro__img', { opacity:0, x:40, scale:0.95 }, { opacity:1, x:0, scale:1, duration:1.2, ease:'expo.out' }, "-=1.2")
-    .fromTo('.brand-intro__quote', { opacity:0, x:40 }, { opacity:1, x:0, duration:1, ease:'expo.out' }, "-=0.8");
+  // Flash: brief brightness pulse on the section bg
+  flashTl.fromTo(section,
+    { backgroundColor:'rgba(179,102,40,0.0)' },
+    { backgroundColor:'rgba(179,102,40,0.18)', duration:0.07, ease:'power4.in',
+      yoyo:true, repeat:3, repeatDelay:0.04 }
+  );
 
-  // Continuous Parallax Scrub for the Image inside
-  gsap.fromTo('.brand-intro__img img', 
-    { scale: 1.3, transformOrigin: 'center center' }, 
-    { 
-      scale: 1, 
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#brand-intro',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true
-      }
+  /* ── 3. KICKER + KINETIC TITLE ─────────────────────────── */
+  const mainTl = gsap.timeline({
+    scrollTrigger:{ trigger:'#brand-intro', start:'top 68%', once:true,
+                    onUpdate: s => track(s.scrollTrigger) }
+  });
+
+  mainTl
+    .fromTo('.brand-intro__kicker',
+      { opacity:0, x:-40 },
+      { opacity:1, x:0, duration:0.6, ease:'power3.out' })
+    .fromTo('.bi-word',
+      { y:'110%', rotationZ:6, opacity:0 },
+      { y:'0%', rotationZ:0, opacity:1, duration:0.9, ease:'back.out(1.6)', stagger:0.12 },
+      '-=0.3')
+    .fromTo('.brand-intro__body',
+      { opacity:0, y:30 },
+      { opacity:1, y:0, duration:0.8, ease:'power3.out' },
+      '-=0.5')
+    .fromTo('.brand-intro__stat',
+      { opacity:0, y:20, filter:'blur(12px)' },
+      { opacity:1, y:0, filter:'blur(0px)', duration:0.7, ease:'power3.out', stagger:0.12 },
+      '-=0.5');
+
+  /* ── 4. NAVALHA CLIP-PATH REVEAL (Imagem) ──────────────── */
+  gsap.set('.brand-intro__img', { clipPath:'polygon(0 48%, 100% 48%, 100% 52%, 0 52%)' });
+
+  gsap.to('.brand-intro__img', {
+    clipPath:'polygon(0 0%, 100% 0%, 100% 100%, 0 100%)',
+    duration:1.2, ease:'expo.inOut',
+    scrollTrigger:{ trigger:'#brand-intro', start:'top 60%', once:true }
+  });
+
+  // Parallax zoom-out inside the clip
+  gsap.fromTo('.brand-intro__img img',
+    { scale:2.2, transformOrigin:'center center' },
+    { scale:1, ease:'none',
+      scrollTrigger:{ trigger:'#brand-intro', start:'top bottom', end:'bottom top', scrub:1 }
     }
+  );
+
+  /* ── 5. QUOTE SLIDE ────────────────────────────────────── */
+  gsap.fromTo('.brand-intro__quote',
+    { opacity:0, x:60, filter:'blur(8px)' },
+    { opacity:1, x:0, filter:'blur(0px)', duration:1.1, ease:'expo.out',
+      scrollTrigger:{ trigger:'#brand-intro', start:'top 55%', once:true } }
   );
 };
 

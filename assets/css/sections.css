@@ -484,12 +484,14 @@
 .brand-intro__stat span{ font-size:.58rem; letter-spacing:.3em; color:rgba(235,209,183,.65); }
 .brand-intro__stars{ display:flex; gap:.22rem; align-items:center;
   font-size:1rem; margin-bottom:.3rem; }
-.brand-intro__img{ position:relative; aspect-ratio:4/5; overflow:hidden;
-  border:1px solid rgba(240,225,212,.12); }
+.brand-intro__img{ position:relative; aspect-ratio:4/5; overflow:visible;
+  border:1px solid rgba(240,225,212,.12); clip-path:polygon(0 0%, 100% 0%, 100% 100%, 0 100%); }
+.bi-line{ overflow:hidden; display:block; line-height:.92; }
+.bi-word{ display:inline-block; will-change:transform; font-family:var(--font-poster); }
 .brand-intro__img img{ width:100%; height:100%; object-fit:cover;
-  filter:contrast(1.1) saturate(.92) brightness(.88) sepia(.08); transform:scale(1.04);
-  transition:transform 1.2s var(--ease-expo); }
-.brand-intro__img:hover img{ transform:scale(1.09); }
+  filter:contrast(1.1) saturate(.92) brightness(.88) sepia(.08);
+  will-change:transform; }
+.brand-intro__img:hover img{ }
 .brand-intro__img::after{ content:""; position:absolute; inset:0;
   background:linear-gradient(180deg,transparent 40%,rgba(5,28,46,.65)); pointer-events:none; }
 .brand-intro__quote{ position:absolute; left:1.2rem; bottom:1.2rem; background:rgba(13,13,13,.92);
