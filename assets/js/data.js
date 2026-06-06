@@ -32,7 +32,7 @@ GC.barbers = [
     role:"BARBEIRO / ESPECIALISTA EM FADE",
     desc:"Mão firme, olho de régua. Transições limpas, linhas cravadas e acabamento na navalha. A equipe da Garage Club está pronta pra te atender.",
     years:"08", cuts:"24k",
-    main:"assets/img/new-02.webp",
+    main:"assets/img/barber-02.webp",
     thumbs:["assets/img/cut-09.jpg","assets/img/new-04.webp","assets/img/cut-11.jpg"]
   }
 ];
