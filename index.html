@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ====== SEO: Title + Description ====== -->
+<title>Garage Club — Barbearia em Fortaleza, CE | Cortes Masculinos Premium</title>
+<meta name="description" content="Barbearia Garage Club em Fortaleza, CE. Cortes clássicos, fades modernos, barba e tratamentos premium. Nota 5,0 no Google Maps. Agende online agora." />
+<meta name="keywords" content="barbearia fortaleza, corte masculino fortaleza, barbearia garage club, fade moderno, barba, barbearia vila união fortaleza" />
+<meta name="author" content="Garage Club Barbearia" />
+<meta name="robots" content="index, follow" />
+
+<!-- ====== Open Graph (WhatsApp, Instagram, Facebook) ====== -->
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content="Garage Club — A Barbearia de Quem Tem Estrada" />
+<meta property="og:description" content="Cortes clássicos, fades e barba em Fortaleza. 5,0 no Google Maps. Agende seu horário agora." />
+<meta property="og:image" content="assets/img/cut-03.jpg" />
+<meta property="og:image:alt" content="Corte clássico realizado na Garage Club Barbearia, Fortaleza CE" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Garage Club Barbearia" />
+
+<!-- ====== Twitter / X Card ====== -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Garage Club — Barbearia em Fortaleza, CE" />
+<meta name="twitter:description" content="Cortes premium, fades e barba em Fortaleza. 5,0 no Google Maps." />
+<meta name="twitter:image" content="assets/img/cut-03.jpg" />
+
+<!-- ====== Preload crítico: logo WebP (LCP candidato) ====== -->
+<link rel="preload" as="image" href="assets/img/logo.webp" type="image/webp" />
+
+<!-- ====== Fontes ====== -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/base.css" />
+<link rel="stylesheet" href="assets/css/sections.css" />
+</head>
+<body class="is-loading">
+
+<!-- ============ SVG FILTERS: RGB channel split for chromatic aberration ============ -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="chan-r" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="chan-g" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="chan-b" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============ FILM GRAIN (global) ============ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+  <span class="cursor__label"></span>
+</div>
+
+<!-- ============ PRELOADER + GARAGE GATE ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader__noise"></div>
+  <div class="preloader__top">
+    <span class="mono">BARBEARIA</span>
+    <span class="mono">EST. 2023</span>
+  </div>
+  <div class="preloader__center">
+    <span class="preloader__brand serif">GARAGE CLUB</span>
+    <span class="mono preloader__sub">CARREGANDO A GARAGE</span>
+    <div class="preloader__count">
+      <span class="counter" id="counter">00</span>
+      <span class="preloader__pct mono">%</span>
+    </div>
+    <div class="preloader__track">
+      <span class="mono">00</span>
+      <div class="preloader__bar"><i id="loadbar"></i></div>
+      <span class="mono">100</span>
+    </div>
+  </div>
+  <div class="preloader__flare" id="flare"></div>
+</div>
+
+<!-- Garage pantographic gate -->
+<div class="gate" id="gate" aria-hidden="true">
+  <div class="gate__panel gate__panel--top"></div>
+  <div class="gate__panel gate__panel--bottom"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__brand" data-magnetic data-cursor="HOME">
+    <img src="assets/img/logo.webp" alt="Garage Club Barbearia — Logo" class="nav__logo" width="80" height="80" />
+    <span class="nav__word">
+      <strong class="serif">GARAGE CLUB</strong>
+      <small class="mono">BARBEARIA</small>
+    </span>
+  </a>
+  <nav class="nav__links">
+    <a href="#carousel" data-magnetic class="mono">CORTES</a>
+    <a href="#barbers" data-magnetic class="mono">BARBEIROS</a>
+    <a href="#garage" data-magnetic class="mono">SERVIÇOS</a>
+    <a href="#club" data-magnetic class="mono">CLUB</a>
+  </nav>
+  <a href="#club" class="nav__cta mono" data-magnetic data-cursor="AGENDAR">AGENDAR
+    <span class="nav__cta-fill"></span>
+  </a>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main id="scroll-content">
+
+  <!-- ===== SECTION 1 — HERO ===== -->
+  <section class="hero" id="hero" data-screen-label="Hero">
+    <div class="hero__media">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/img/cut-03.jpg">
+        <source src="assets/video/ambiente-opt.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__vignette"></div>
+      <div class="hero__road"></div>
+      <div class="hero__headlights" id="headlights">
+        <span class="hl hl--l"></span>
+        <span class="hl hl--r"></span>
+        <span class="hl__beam"></span>
+      </div>
+    </div>
+
+    <div class="hero__top mono">
+      <span>19 <i>—</i> 23</span>
+      <span class="hero__top-mid">N <i class="tick"></i> S — GARAGE CLUB</span>
+      <span>FORTALEZA / CE</span>
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow mono"><i></i> A CONFRARIA DA NAVALHA</p>
+      <h1 class="hero__title">
+        <span class="line" data-split>MAIS QUE</span>
+        <span class="line" data-split>UM CORTE</span>
+      </h1>
+      <p class="hero__script script">é um estilo de vida</p>
+      <a href="#club" class="btn-magnetic" data-magnetic data-cursor="AGENDAR">
+        <span class="btn-magnetic__fill"></span>
+        <span class="btn-magnetic__label mono">AGENDAR HORÁRIO</span>
+      </a>
+    </div>
+
+    <div class="hero__scroll mono">
+      <span class="hero__mouse"><i></i></span>
+      <span>ROLE PARA ENTRAR</span>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 1.5 — BRAND INTRO ===== -->
+  <section class="brand-intro" id="brand-intro" data-screen-label="Quem Somos">
+    <div class="brand-intro__grid">
+      <div class="brand-intro__left">
+        <p class="brand-intro__kicker"><i></i> EST. 2023 — FORTALEZA, CE</p>
+        <h2 class="brand-intro__title">A GARAGE<br />QUE <em>VIROU</em><br />LENDA</h2>
+        <p class="brand-intro__body">Da R. Des. Praxedes à memória de quem já sentou na nossa cadeira: a Garage Club nasceu pra ser mais que uma barbearia. É território. É confraria. É ritual.</p>
+        <div class="brand-intro__stats">
+          <div class="brand-intro__stat">
+            <div class="brand-intro__stars">★★★★★</div>
+            <b>5,0</b>
+            <span>GOOGLE MAPS</span>
+          </div>
+          <div class="brand-intro__stat">
+            <b>109+</b>
+            <span>AVALIAÇÕES</span>
+          </div>
+          <div class="brand-intro__stat">
+            <b>EST.</b>
+            <span>2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="brand-intro__right">
+        <div class="brand-intro__img">
+          <img src="assets/img/new-01.webp" alt="Garage Club — Fortaleza" loading="lazy" />
+        </div>
+        <blockquote class="brand-intro__quote">
+          <p>"Atendimento vip pro cliente e ambiente descontraído! Top!!!!"</p>
+          <cite>— Samuel Melo · Google Maps</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2 — HORIZONTAL CAROUSEL ===== -->
+  <section class="carousel" id="carousel" data-screen-label="Cortes / Carousel">
+    <div class="carousel__pin" id="carouselPin">
+      <div class="carousel__bgword" id="carouselBgWord"><span>CLÁSSICOS</span></div>
+      <div class="carousel__head">
+        <span class="carousel__idx mono"><b id="carIdx">01</b> <i>—</i> 12</span>
+        <h2 class="carousel__title">
+          CLÁSSICO <span class="amber">RENASCIDO</span>
+        </h2>
+      </div>
+      <div class="carousel__track" id="carouselTrack">
+        <!-- rail items injected by JS -->
+      </div>
+      <div class="carousel__cue mono"><span>ARRASTE</span> <i class="arrow"></i></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3 — BARBERS (sticky split) ===== -->
+  <section class="barbers" id="barbers" data-screen-label="Barbeiros / Bancada">
+    <div class="barbers__sticky">
+      <div class="barbers__left">
+        <span class="barbers__kicker mono">A BANCADA</span>
+        <div class="barbers__rolewrap">
+          <span class="barbers__role mono" id="barberRole">FUNDADOR / MASTER BARBER</span>
+        </div>
+        <h2 class="barbers__name" id="barberName">
+          <span class="mask"><span class="mask__in">YAN</span></span>
+          <span class="mask"><span class="mask__in">STOCKLI</span></span>
+        </h2>
+        <p class="barbers__sign script" id="barberSign">Yan Stockli</p>
+        <p class="barbers__desc" id="barberDesc">Fundador da Garage Club em Fortaleza. Yan une a disciplina da velha escola com a precisão milimétrica do fade moderno — cada corte é uma assinatura.</p>
+        <div class="barbers__meta">
+          <div><b class="serif">12</b><span class="mono">ANOS DE NAVALHA</span></div>
+          <div><b class="serif">38k</b><span class="mono">CORTES FEITOS</span></div>
+        </div>
+        <a href="#club" class="ghost-btn mono" data-magnetic data-cursor="AGENDAR">VER AGENDA <i></i></a>
+        <div class="barbers__pager">
+          <span class="mono" id="barberPager">01</span>
+          <span class="barbers__pagerline"><i id="barberPagerFill"></i></span>
+          <span class="mono">02</span>
+        </div>
+      </div>
+      <div class="barbers__right" id="barbersRight">
+        <!-- panels injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3.6 — FRAME SCRUB (300 frames) ===== -->
+  <section class="frame-scrub" id="frameScrubSection" data-screen-label="Barbeiro em Ação">
+    <div class="frame-scrub__sticky">
+      <!-- MONUMENTAL GHOST TEXTS -->
+      <div class="frame-scrub__monumental-texts" aria-hidden="true">
+        <span class="monumental-word monumental-word--1">PRECISÃO</span>
+        <span class="monumental-word monumental-word--2">ESTILO</span>
+        <span class="monumental-word monumental-word--3">ARTE</span>
+      </div>
+
+      <!-- CENTER: CANVAS -->
+      <div class="frame-scrub__wrapper">
+        <canvas id="frameScrubCanvas" class="frame-scrub__canvas"></canvas>
+        <div class="frame-scrub__info">
+          <span class="frame-scrub__label mono">NAVALHA EM AÇÃO</span>
+          <p class="frame-scrub__title">ARTE NA<br />PONTA DOS DEDOS</p>
+        </div>
+        <div class="frame-scrub__prog" id="reelProg"></div>
+      </div>
+      
+      <div class="frame-scrub__cue mono">ROLE PARA ASSISTIR</div>
+    </div>
+  </section>  <!-- ===== SECTION 4 — GARAGE GRID + O.S. SERVICE MENU ===== -->
+  <section class="garage" id="garage" data-screen-label="A Garage / Experiência">
+    <div class="garage__intro">
+      <span class="garage__kicker mono"><i></i> DENTRO DA GARAGE</span>
+      <h2 class="garage__title">NÃO É SÓ UM CORTE.<br /><span class="amber">É UMA EXPERIÊNCIA.</span></h2>
+      <p class="garage__lead">Couro, metal escovado, cheiro de pomada e som de motor. Um território masculino pensado nos mínimos detalhes — onde cada visita é uma parada na box.</p>
+    </div>
+
+    <!-- MEDIA WRAP: ambiente full-bleed + floating carousel -->
+    <div class="garage__media-wrap">
+      <figure class="garage__hero-vid">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/video/ambiente-opt.mp4" type="video/mp4" />
+        </video>
+        <figcaption class="mono">O AMBIENTE</figcaption>
+      </figure>
+      <!-- Floating vertical carousel -->
+      <div class="garage__float-rail" id="garageFloatRail">
+        <figure class="garage__float-item">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="assets/video/corte-opt.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="mono">NA CADEIRA</figcaption>
+        </figure>
+        <figure class="garage__float-item">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="assets/video/corte-2-opt.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="mono">A NAVALHA</figcaption>
+        </figure>
+        <figure class="garage__float-item">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="assets/video/servico-opt.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="mono">O SERVIÇO</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- O.S. SERVICE MENU -->
+    <div class="os" id="os">
+      <div class="os__head">
+        <span class="os__kicker mono">ORDEM DE SERVIÇO</span>
+        <h3 class="os__title">CARDÁPIO <span class="amber">N°23</span></h3>
+        <p class="os__sub mono">PASSE O MOUSE — VEJA O RESULTADO</p>
+      </div>
+      <div class="os__paper" id="osPaper">
+        <div class="os__paperhead">
+          <div class="os__stamp serif">G</div>
+          <div class="os__papertitle">
+            <span class="serif">SERVICE MENU</span>
+            <span class="mono">GARAGE.CLUB — EST. 2023</span>
+          </div>
+          <div class="os__no mono">N° 0023<br />19 ✦ 23</div>
+        </div>
+        <ul class="os__list" id="osList"><!-- rows injected --></ul>
+        <div class="os__foot">
+          <div class="os__barcode" aria-hidden="true"></div>
+          <div class="os__thanks mono">MEMBROS GANHAM 10% OFF<br /><b>OBRIGADO — DRIVE SAFE</b></div>
+        </div>
+      </div>
+      <div class="os__follower" id="osFollower" aria-hidden="true"><img id="osFollowerImg" alt="" /></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5 — CLUB + FOOTER ===== -->
+  <section class="club" id="club" data-screen-label="Club / Membership">
+    <div class="club__head">
+      <span class="club__kicker mono"><i></i> O CLUBE</span>
+      <h2 class="club__title">TORNE-SE <span class="amber">MEMBRO</span></h2>
+      <p class="club__lead">Acesso exclusivo. Benefícios premium. Estilo atemporal. Escolha sua cilindrada.</p>
+    </div>
+    <div class="club__plans" id="clubPlans">
+      <article class="plan" data-spotlight>
+        <div class="plan__glow"></div>
+        <header class="plan__top">
+          <span class="plan__badge serif">V6</span>
+          <span class="plan__tag mono">MEMBRO ASPIRADO</span>
+        </header>
+        <div class="plan__price"><b class="serif">R$69</b><span class="mono">/mês</span></div>
+        <ul class="plan__list mono">
+          <li>2 cortes por mês</li>
+          <li>10% off em todos os serviços</li>
+          <li>Agendamento prioritário</li>
+          <li>Eventos só pra membros</li>
+        </ul>
+        <a href="#" class="plan__btn mono" data-magnetic data-cursor="ENTRAR">ENTRAR NO V6</a>
+      </article>
+      <article class="plan plan--v8" data-spotlight>
+        <div class="plan__glow"></div>
+        <span class="plan__ribbon mono">TURBO</span>
+        <header class="plan__top">
+          <span class="plan__badge serif">V8</span>
+          <span class="plan__tag mono">MEMBRO TURBINADO</span>
+        </header>
+        <div class="plan__price"><b class="serif">R$119</b><span class="mono">/mês</span></div>
+        <ul class="plan__list mono">
+          <li>4 cortes por mês</li>
+          <li>20% off em todos os serviços</li>
+          <li>Agendamento prioritário</li>
+          <li>Eventos só pra membros</li>
+          <li>Kit e brindes exclusivos</li>
+        </ul>
+        <a href="#" class="plan__btn plan__btn--solid mono" data-magnetic data-cursor="ENTRAR">ENTRAR NO V8</a>
+      </article>
+    </div>
+
+    <!-- FOOTER COM LIMIAR TRANSITION -->
+    <footer class="footer" id="footer">
+      <div class="footer__big" id="limiarSection">
+        <!-- Textos sobrepostos para efeito de máscara -->
+        <div class="footer__word-wrapper">
+          <h2 class="footer__word footer__word--dark">GARAGE CLUB</h2>
+          <h2 class="footer__word footer__word--bright" id="limiarText" aria-hidden="true">GARAGE CLUB</h2>
+          
+          <!-- Muscle Car Limpador -->
+          <div class="limiar__car-wrapper" id="limiarCar">
+            <svg class="limiar__car-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <path d="M480,90 L460,70 L350,65 L310,40 L180,40 L140,65 L50,70 C30,72 10,80 10,100 L10,115 C10,125 15,130 25,130 L50,130 C55,115 70,105 85,105 C100,105 115,115 120,130 L380,130 C385,115 400,105 415,105 C430,105 445,115 450,130 L480,130 C490,130 495,125 495,115 L495,100 C495,95 490,92 480,90 Z" fill="var(--amber)"/>
+              <circle cx="85" cy="130" r="22" fill="var(--black)" stroke="var(--amber)" stroke-width="4"/>
+              <circle cx="415" cy="130" r="22" fill="var(--black)" stroke="var(--amber)" stroke-width="4"/>
+              <path d="M150,65 L185,45 L290,45 L340,65 Z" fill="var(--black)"/>
+              <rect x="475" y="95" width="8" height="15" fill="#f00"/>
+              <rect x="20" y="95" width="8" height="15" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+        
+        <span class="footer__sub script">a barbearia de quem tem estrada</span>
+      </div>
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="mono footer__lbl">VISITE</span>
+          <p class="serif">R. Des. Praxedes, 1310A<br />Vila União · Fortaleza — CE</p>
+        </div>
+        <div class="footer__col">
+          <span class="mono footer__lbl">HORÁRIOS</span>
+          <p class="mono">SEG–SEX / 10H–20H<br />SÁB–DOM / 09H–18H</p>
+        </div>
+        <div class="footer__col">
+          <span class="mono footer__lbl">SIGA</span>
+          <ul class="footer__social mono">
+            <li><a href="https://www.instagram.com/barbearia_garage_club/" data-magnetic data-cursor="↗">INSTAGRAM</a></li>
+            <li><a href="https://wa.me/5585986177611" data-magnetic data-cursor="↗">WHATSAPP</a></li>
+            <li><a href="tel:+5585986177611" data-magnetic data-cursor="↗">(85) 98617-7611</a></li>
+          </ul>
+        </div>
+        <a class="footer__map" href="https://maps.google.com/?q=R.+Des.+Praxedes,+1310A,+Vila+União,+Fortaleza,+CE" target="_blank" rel="noopener noreferrer" data-cursor="MAPA" aria-label="Ver localização da Garage Club no Google Maps">
+          <span class="footer__pin mono">◉ GARAGE CLUB</span>
+        </a>
+      </div>
+      <div class="footer__bar mono">
+        <span>© 2023 GARAGE CLUB — BARBEARIA</span>
+        <span>TODOS OS DIREITOS RESERVADOS</span>
+        <a href="#hero" data-magnetic data-cursor="TOPO">VOLTAR AO TOPO ↑</a>
+      </div>
+    </footer>
+  </section>
+
+</main>
+
+<!-- ============ LIBS ============ -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<!-- ============ APP MODULES ============ -->
+<script defer src="assets/js/data.js"></script>
+<script defer src="assets/js/smooth.js"></script>
+<script defer src="assets/js/cursor.js"></script>
+<script defer src="assets/js/preloader.js"></script>
+<script defer src="assets/js/frame-scrub.js"></script>
+<script defer src="assets/js/scenes.js"></script>
+<script defer src="assets/js/main.js"></script>
+</body>
+</html>
